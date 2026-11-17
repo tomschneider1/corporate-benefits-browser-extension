@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "Corporate Benefits Helper",
+  "minimum_chrome_version": "109",
+  "incognito": "split",
+  "version": "2.0.0",
+  "description": "Erkennt beim Online-Shopping passende Corporate-Benefits-Angebote und ruft Gutscheincodes direkt über deine eigene Sitzung ab.",
+  "permissions": [
+    "storage",
+    "cookies",
+    "alarms",
+    "offscreen",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://*.mitarbeiterangebote.de/*"
+  ],
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Corporate Benefits Helper",
+    "default_popup": "src/popup/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*/*",
+        "http://*/*"
+      ],
+      "exclude_matches": [
+        "https://*.mitarbeiterangebote.de/*"
+      ],
+      "js": [
+        "src/content/banner.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

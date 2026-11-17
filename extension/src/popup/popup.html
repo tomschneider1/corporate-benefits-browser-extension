@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Corporate Benefits Helper</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-title">
+        <span class="logo-dot"></span>
+        <div>
+          <h1>Corporate Benefits</h1>
+          <p id="domainLabel" class="subtitle">Prüfe aktuellen Tab…</p>
+        </div>
+      </div>
+      <button id="syncBtn" class="icon-btn" title="Angebotskatalog jetzt aktualisieren" disabled>
+        ↻ Sync
+      </button>
+    </header>
+
+    <details id="portalSettings" class="portal-settings">
+      <summary>Unternehmensportal</summary>
+      <form id="portalForm">
+        <label for="portalInput">Adresse deines Corporate-Benefits-Portals</label>
+        <div class="portal-input-row">
+          <input
+            id="portalInput"
+            type="text"
+            placeholder="unternehmen.mitarbeiterangebote.de"
+            autocapitalize="none"
+            spellcheck="false"
+            required
+          />
+          <button id="portalSave" class="icon-btn" type="submit">Speichern</button>
+        </div>
+        <p id="portalError" class="error-msg hidden" role="alert"></p>
+      </form>
+    </details>
+
+    <section id="sessionBanner" class="session-banner hidden">
+      <div>
+        <strong>Nicht eingeloggt</strong>
+        <p>Bitte einmal im Browser bei Corporate Benefits anmelden, damit Angebote &amp; Codes geladen werden können.</p>
+      </div>
+      <a
+        id="loginLink"
+        target="_blank"
+        rel="noopener"
+        class="primary-btn"
+      >
+        Zum Login öffnen
+      </a>
+    </section>
+
+    <section id="searchBar" class="search-bar hidden">
+      <input
+        id="searchInput"
+        type="search"
+        placeholder="Alle Angebote durchsuchen (z. B. Adidas, LG, Mietwagen)…"
+        autocomplete="off"
+      />
+    </section>
+
+    <main id="mainContent" class="content">
+      <div id="loadingState" class="empty-state">Suche passende Mitarbeiterangebote…</div>
+      <div id="offersContainer"></div>
+      <div id="searchResultsContainer" class="hidden"></div>
+    </main>
+
+    <footer id="catalogFooter" class="footer hidden">
+      <span id="catalogStatus">Katalog: noch nicht synchronisiert</span>
+      <a
+        id="portalHomeLink"
+        target="_blank"
+        rel="noopener"
+      >
+        Portal öffnen ↗
+      </a>
+    </footer>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

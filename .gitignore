@@ -1,0 +1,35 @@
+# Abhängigkeiten und generierte Dateien
+node_modules/
+/coverage/
+/dist/
+/artifacts/
+*.crx
+*.log
+
+# Lokale Zugangsdaten, Browser-Sitzungen und Mitschnitte
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.har
+cookies.json
+storage-state.json
+storageState.json
+data_coupons.json
+/browser-profile/
+/chrome-profile/
+
+# Lokale Editor- und Betriebssystemdateien
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Reste des früheren Python-Scrapers
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+chromedriver*
+geckodriver*
